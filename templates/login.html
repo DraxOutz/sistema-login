@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+
+        input[type="submit"] {
+            background-color: #00e676;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #00c853;
+        }
+
+        .erro {
+            color: #ff8a80;
+            margin-top: 10px;
+        }
+
+        .link-registro {
+            margin-top: 10px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .link-registro a {
+            color: #fff;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+
+        .link-registro a:hover {
+            color: #cfd8dc;
+        }
+    </style>
+</head>
+<body>
+    <h2>Login</h2>
+
+    {% if erro %}
+    <p class="erro">{{ erro }}</p>
+    {% endif %}
+
+    <form method="POST" action="/login">
+        <input type="text" name="username" placeholder="Usuário" required>
+        <input type="password" name="password" placeholder="Senha" required>
+        <input type="submit" value="Entrar">
+    </form>
+
+    <div class="link-registro">
+        <p>Não tem uma conta? <a href="/registro">Crie aqui</a></p>
+    </div>
+</body>
+</html>

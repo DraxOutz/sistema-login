@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: rgba(0,0,0,0.3);
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+
+        input[type="submit"] {
+            background-color: #00c853;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #00b248;
+        }
+
+        .erro {
+            color: #ff5252;
+            margin-top: 10px;
+        }
+
+        a {
+            color: #ccc;
+            font-size: 14px;
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>Cadastro de Usuário</h2>
+
+    {% if erro %}
+    <p class="erro">{{ erro }}</p>
+    {% endif %}
+
+    <form method="POST" action="/registro">
+        <input type="text" name="username" placeholder="Nome de usuário" required>
+        <input type="password" name="password" placeholder="Senha" required>
+         <input type="password" name="password2" placeholder="Repita a senha" required>
+        <input type="submit" value="Cadastrar">
+    </form>
+
+    <a href="/">Voltar para login</a>
+</body>
+</html>
